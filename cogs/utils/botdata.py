@@ -132,6 +132,9 @@ class GuildInfo(BotDataItem):
 		])
 		for var in self.variables:
 			defaults[var["key"]] = var["default"]
+		print(botdata)
+		print(guildid)
+		print(defaults)
 		BotDataItem.__init__(self, botdata, "guildinfo", { "id": guildid }, defaults)
 
 	variables = [

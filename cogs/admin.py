@@ -21,12 +21,15 @@ class Admin(MangoCog):
 
 	def bot_check(self, ctx):
 		"""Checks to make sure the user has permissions"""
-		guildinfo = botdata.guildinfo(ctx)
-		if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
-			if guildinfo.is_banned(ctx.message.author):
-				return False
-			if guildinfo.is_disabled(ctx.command):
-				return False
+		try:
+			guildinfo = botdata.guildinfo(ctx)
+			if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
+				if guildinfo.is_banned(ctx.message.author):
+					return False
+				if guildinfo.is_disabled(ctx.command):
+					return False
+		except AttributeError as e:
+			print(e)
 		return True
 
 	def cog_check(self, ctx):

@@ -422,7 +422,7 @@ class DotaStats(MangoCog):
 		"""Gets info about the player's last dota game
 
 		To see how to filter for specific matches, try `{cmdpfx}docs matchfilter`"""
-		await ctx.channel.trigger_typing()
+		# await ctx.channel.trigger_typing()
 		
 		matchfilter = await MatchFilter.init(matchfilter, ctx)
 		player = matchfilter.player
